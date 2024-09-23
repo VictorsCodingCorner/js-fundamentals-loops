@@ -3,30 +3,67 @@ const nums = [1, 10, 3, 9, 4, 8, 5, 7, 6, 2, -5, -2, -4, -9] // eslint-disable-l
 // 1. Use a for loop to set the variable hasTen to true if the array contains the value 10
 // note: use a break statement to exit the loop early if the value is found
 // to prove you have done this, set the variable indexOfTen to the iteration index when you find 10
-// let hasTen = false
-// let indexOfTen = -1
+let hasTen = false
+let indexOfTen = -1
+
+for (let i = 0; i < nums.length; i++) {
+  if (nums[i] === 10) {
+    hasTen = true
+    indexOfTen = i
+    break
+  }
+}
 
 // 2. Use a for loop to count how many numbers in the array are divisible by 3
-// let divisibleByThreeCount = 0
+let divisibleByThreeCount = 0
+nums.forEach((e) => {
+  if (e % 3 === 0) {
+    divisibleByThreeCount++
+  }
+})
 
 // 3. use a for loop to find the average of the numbers in the array
-// let average = 0
+let average = 0
+
+for (let i = 0; i < nums.length; i++) {
+  average += nums[i]
+}
+average = average / nums.length
 
 // 4. use a for loop to find the largest number in the array
-// let largest = 0
+let largest = 0
+nums.forEach((e) => {
+  if (largest < e) {
+    largest = e
+  }
+})
 
 // 5. use a for loop to find the smallest number in the array
-// let smallest = 100000
+let smallest = 100000
+
+nums.forEach((e) => {
+  if (smallest > e) {
+    smallest = e
+  }
+})
 
 // 6. find the median of the numbers in the array
-// let median = 0
+let median = 0
+nums.sort((a, b) => a - b)
+let i = Math.floor(nums.length / 2)
+i = Math.round(i)
+if (nums.length % 2 === 0) {
+  median = Math.floor((nums[i - 1] + nums[i]) / 2)
+} else {
+  median = Math.floor(nums[i])
+}
 
-// module.exports = {
-//   hasTen,
-//   indexOfTen,
-//   divisibleByThreeCount,
-//   average,
-//   largest,
-//   smallest,
-//   median
-// }
+module.exports = {
+  hasTen,
+  indexOfTen,
+  divisibleByThreeCount,
+  average,
+  largest,
+  smallest,
+  median
+}
